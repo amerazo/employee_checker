@@ -19,30 +19,6 @@ Employees sometimes register with their company email addresses on websites, and
 ## ERD
 ![Image](https://i.imgur.com/JfBQaTI.jpeg)
 
-
-### EmailCheck Model ERD:
-+----------------------------------------+
-|        EmailSubscription              |
-+----------------------------------------+
-| _id: ObjectId                         |
-| email: String (Subscribed Email)      |
-| createdAt: Date (Timestamp)           |
-| updatedAt: Date (Timestamp)           |
-+----------------------------------------+
-
-### STRETCH EmailCheck Model ERD:
-
-+-------------------------------------+
-|            EmailCheck              |
-+-------------------------------------+
-| _id: ObjectId                      |
-| email: String (Email Address)      |
-| breached: Boolean (Breach Status)  |
-| breachDetails: String[] (Optional) |
-| createdAt: Date (Timestamp)        |
-| updatedAt: Date (Timestamp)        |
-+-------------------------------------+
-
 ## Technologies Used
 
 - MongoDB
@@ -74,7 +50,7 @@ Employees sometimes register with their company email addresses on websites, and
 | `GET /api/email-check/:id`        | MVP                 | Retrieve breach status for a specific email.                                |
 
 ## Wireframes
+![Image](https://i.imgur.com/chKEEVW.png)
 
-(i need to add it here)
 
 
