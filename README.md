@@ -58,7 +58,6 @@ Employees sometimes register with their company email addresses on websites, and
 4. Run the development server with `npm run dev`
 
 ## Routes
-## Routes
 
 | **Route**                         | **MVP or Stretch** | **Description**                                                             |
 |-----------------------------------|---------------------|-----------------------------------------------------------------------------|
@@ -71,7 +70,6 @@ Employees sometimes register with their company email addresses on websites, and
 | `PUT /api/email-subscription/:id` | MVP                 | Update an email subscription id from MongoDB                                |
 | **EmailCheck Route (MVP)**        |                     |                                                                             |
 | `GET /api/email-check/:id`        | MVP                 | Retrieve breach status for a specific email.                                |
-|-----------------------------------|---------------------|-----------------------------------------------------------------------------|
 
 ## Wireframes
 
