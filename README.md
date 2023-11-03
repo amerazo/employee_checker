@@ -11,6 +11,14 @@ Employees sometimes register with their company email addresses on websites, and
 - As an employee, I want to subscribe my email for monitoring to ensure my account's security.
 
 ## Strategy
+### MVP
+-Create a landing page that includes the ability to enter and search an email address that will display if an email account has been breached or not. 
+-Create a form on the landing page that allows users to enter their name and email address for continous monitoring. 
+### Stretch
+-Store the results of the API in mongodb
+-Have a filter for stored searched email addresses to filter for those that have been breached vs those that have not
+-Create the opportunity to mass import email addresses
+
 
 ### Third Party API
 - Use the HaveIBeenPwned API here: https://haveibeenpwned.com/API/v3#Authorisation
