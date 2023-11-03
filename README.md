@@ -41,7 +41,6 @@ Employees sometimes register with their company email addresses on websites, and
 | updatedAt: Date (Timestamp)        |
 +-------------------------------------+
 
-
 ## Technologies Used
 
 - MongoDB
