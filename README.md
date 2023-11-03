@@ -17,7 +17,7 @@ Employees sometimes register with their company email addresses on websites, and
 - Authorisation is required for the API which enables searching HIBP by email address or domain, namely retrieving all breaches for an account, retrieving all pastes for an account and retrieving all breached email addresses for a domain. I will need to request authorisation for the API.
 
 ## ERD
-![Image](https://imgur.com/gallery/FA5qSBs)
+![Image](https://i.imgur.com/JfBQaTI.jpeg)
 
 
 ### EmailCheck Model ERD:
