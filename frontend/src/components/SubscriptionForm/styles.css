@@ -1,0 +1,10 @@
+.subscription-form-input input[type="text"],
+.subscription-form-input input[type="email"],
+.subscription-form-input select {
+    width: 70%; 
+    padding: 10px;
+    border: 1px solid #00ff00;
+    background-color: #222;
+    color: #5eb15e;
+    font-size: 22px;
+  }

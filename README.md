@@ -12,17 +12,16 @@ Employees sometimes register with their company email addresses on websites, and
 
 ## Strategy
 ### MVP
--Create a landing page that includes the ability to enter and search an email address that will display if an email account has been breached or not. 
--Create a form on the landing page that allows users to enter their name and email address for continous monitoring. 
-### Stretch
--Store the results of the API in mongodb
--Have a filter for stored searched email addresses to filter for those that have been breached vs those that have not
--Create the opportunity to mass import email addresses
+- Create a landing page that includes the ability to enter and search an email address that will display if an email account has been breached or not. 
+- Create a form on the landing page that allows users to enter their name and email address for continuous monitoring. 
 
+### Stretch
+- Create the ability to store employee phishing stories.
 
 ### Third Party API
-- Use the HaveIBeenPwned API here: https://haveibeenpwned.com/API/v3#Authorisation
-- Authorisation is required for the API which enables searching HIBP by email address or domain, namely retrieving all breaches for an account, retrieving all pastes for an account and retrieving all breached email addresses for a domain. I will need to request authorisation for the API.
+- Use the HaveIBeenPwned API here: [HaveIBeenPwned API](https://haveibeenpwned.com/API/v3#Authorisation)
+- Authorisation is required for the API which enables searching HIBP by email address or domain, namely retrieving all breaches for an account, retrieving all pastes for an account, and retrieving all breached email addresses for a domain. I will need to request authorisation for the API.
+- Use the DinoPass API here: [DinoPass API](https://www.dinopass.com/)
 
 ## ERD
 ![Image](https://i.imgur.com/JfBQaTI.jpeg)
@@ -34,31 +33,30 @@ Employees sometimes register with their company email addresses on websites, and
 - React
 - Node.js
 - Have I Been Pwned API
-
+- DinoPass API
 
 ## Installation
 
 1. Clone this repository.
 2. Navigate to the project directory.
-3. Install backend and frontend dependencing with `npm i`
-4. Run the development server with `npm run dev`
+3. Install backend and frontend dependencies with `npm i`.
+4. Run the development server with `npm run dev`.
 
 ## Routes
+| **Route**                 | **MVP or Stretch** | **Description**                                       |
+|---------------------------|---------------------|-------------------------------------------------------|
+| `GET /`                   | N/A                 | Landing Page                                          |
+| **Email Subscription Route (MVP)** |                     |                                      |
+| `POST /subscriptions`     | MVP                 | Submit email address for monitoring. Create a new record in MongoDB. |
+| **APIQuery Route**        |                     |                                                     |
+| `GET /query`              | MVP                | Route to fetch email breach data from HaveIBeenPwned API. |
+| **DinoPass Route (New)**  |                     |                                                    |
+| `GET /api/dinopass`       | STRETCH            | DinoPass Password Route                               |
+| **PhishingForm Routes**   |                     |                                                    |
+| `GET /phishing`           | MVP                | GET route for all phishing stories                    |
+| `PUT /phishing`           | MVP                | EDIT route for phishing stories                       |
+| `DELETE /phishing`        | MVP                | DELETE route for phishing stories                     |
 
-| **Route**                         | **MVP or Stretch** | **Description**                                                             |
-|-----------------------------------|---------------------|-----------------------------------------------------------------------------|
-| **Landing Page Route**            |                     |                                                                             |
-| `GET /`                           | N/A                 | Landing Page                                                                |
-| **EmailSubscription Route (MVP)** |                     |                                                                             |
-| `GET /api/email-subscription`     | MVP                 | Retrieve a list of all subscribed email addresses.                          |
-| `POST /api/email-subscription`    | MVP                 | Submit  email address for monitoring. Create new record in MongoDB          |
-| `DELETE /api/email-subscription/:id` | MVP              | Delete an email subscription id from MongoDB.                               |
-| `PUT /api/email-subscription/:id` | MVP                 | Update an email subscription id from MongoDB                                |
-| **EmailCheck Route (MVP)**        |                     |                                                                             |
-| `GET /api/email-check/:id`        | MVP                 | Retrieve breach status for a specific email.                                |
 
 ## Wireframes
 ![Image](https://i.imgur.com/chKEEVW.png)
-
-
-

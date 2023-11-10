@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles.css'
 
 // API KEY 
 const apiKey = '1ba33d2676b34cb2896462560fdfe0a6';
@@ -16,9 +17,7 @@ function APIQuery() {
       alert('Please enter an email address.');
       return;
     }
-
     setIsLoading(true);
-
     try {
       const endpoint = `/api/subscriptions/proxy?email=${email}`; 
       const response = await fetch(endpoint, {
@@ -26,7 +25,6 @@ function APIQuery() {
           'hibp-api-key': apiKey,
         },
       });
-
       if (response.status === 200) {
         const data = await response.json();
         setBreaches(data);
@@ -43,7 +41,7 @@ function APIQuery() {
       }
     } catch (error) {
       console.error('Error:', error.message);
-      setNotBreached(true); // SET NOTBREACHED STATE TO TRUE IN CASE OF AN ERROR
+      setNotBreached(true); 
     } finally {
       setIsLoading(false);
     }
@@ -55,10 +53,10 @@ function APIQuery() {
     checkBreach();
   }
 
-  // RENDER THE COMPONENT UI
+  // RENDER COMPONENTT UI
   return (
     <div>
-      <h1>Email Breach Checker</h1>
+      <h1>ENTER EMAIL TO CHECK IF IT HAS BEEN IN A BREACH</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -67,20 +65,21 @@ function APIQuery() {
           onChange={(e) => setEmail(e.target.value)}
         />
         <button type="submit" disabled={isLoading}>
-          Check Breach
+          CHECK BREACH
         </button>
       </form>
-      {isLoading && <p>Loading...</p>}
-      {notBreached && <p>Email address HAS NOT been breached.</p>} {/*  NOTBREACHED MESSAGE */}
+      {isLoading && <p>LOADING....</p>}
+      {notBreached && <p>EMAIL ADDRESS HAS NOT BEEN BREACHED.</p>}
       {breaches.length > 0 && (
         <div>
-          <h2>Breached in the following services:</h2>
-          <ul>
-            {/* MAP THROUGH THE BREACHES && DISPLAY THEM */}
+          <h2>BREACHED IN THE FOLLOWING SERVICES</h2>
+          <div className="breached-services">
             {breaches.map((breach) => (
-              <li key={breach.Name}>{breach.Name}</li>
+              <div key={breach.Name} className="breached-service">
+                {breach.Name}
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )}
     </div>

@@ -1,0 +1,50 @@
+.custom-input {
+    width: 80%;
+    min-height: 30px;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #00ff00;
+    border-radius: 3px;
+    background-color: #222;
+    color: #00ff00;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .custom-input[type="text"],
+  .custom-input[type="email"],
+  .custom-input[type="tel"],
+  .custom-input[type="textarea"],
+  .custom-input select {
+    width: 80%; 
+  }
+  
+  
+  .form-group {
+    display: block;
+    margin-bottom: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .card {
+    width: calc(50% - 10px); 
+    margin: 10px 0; 
+    border: 1px solid #ccc;
+    background-color: #222;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+
+  .content-container {
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+  }

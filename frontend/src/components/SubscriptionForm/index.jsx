@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './styles.css'; 
 
 const SubscriptionForm = () => {
   // STATE VAR TO STORE FORM DATA
@@ -51,50 +52,52 @@ const SubscriptionForm = () => {
     }
   };
   
-  return (
-    <div>
-      <h2>Subscribe for Monitoring</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="reason">Reason for subscribing:</label>
-          <select
-            id="reason"
-            name="reason"
-            value={formData.reason}
-            onChange={handleChange}
-          >
-            <option value="awareness">Awareness</option>
-            <option value="phishing">I've been phished before</option>
-            <option value="department">Required by department</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
-        <button type="submit">Subscribe</button>
-      </form>
-    </div>
-  );
+return (
+  <div className="subscription-form-container"> 
+    <h2 className="subscription-form-header">Subscribe for Monitoring</h2>
+    <form onSubmit={handleSubmit}>
+      <div className="subscription-form-input">
+        <label htmlFor="name">Name: </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="subscription-form-input">
+        <label htmlFor="email">Email: </label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          required
+        />
+      </div>
+      <div className="subscription-form-input">
+        <label htmlFor="reason">Reason: </label>
+        <select
+          id="reason"
+          name="reason"
+          value={formData.reason}
+          onChange={handleChange}
+        >
+         <option value="" selected disabled>SELECT</option> 
+          <option value="awareness">Awareness</option>
+          <option value="phishing">I've been phished before</option>
+          <option value="department">Required by department</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <button type="submit" className="subscription-form-button">Subscribe</button>
+    </form>
+  </div>
+);
 };
 
 export default SubscriptionForm;
+

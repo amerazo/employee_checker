@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
-import Test from '../Test';
 import HomePage from '../HomePage';
 import SubscriptionForm from '../SubscriptionForm';
-import SubscriptionList from '../SubscriptionList';
+import PhishingForm from '../PhishingForm';
 import APIQuery from '../APIQuery';
+import DinoPass from '../DinoPass';
+
 
 function App() {
   // STATE VAR TO STORE SUBSCRIPTIONS
   const [subscriptions, setSubscriptions] = useState([]);
+  const [phishingAttempts, setPhishingAttempts] = useState([]);
 
   // FETCH SUBSCRIPTIONS FROM SERVER WHEN COMPONENT MOUNTS
   useEffect(() => {
@@ -19,47 +21,50 @@ function App() {
       });
   }, []);
 
-  return (
-    <div>
-      {/* NAV MENU */}
-      <nav>
-        <ul>
-          <li>
-            {/* LINK TO TEST PAGE */}
-            <Link to="/test">Test</Link>
-          </li>
-          <li>
-            {/* LINK TO SUBSCRIPTION FORM */}
-            <Link to="/subscription">Subscribe</Link>
-          </li>
-          <li>
-            {/* LINK TO SUBSCRIPTIONS LIST */}
-            <Link to="/subscriptions">Subscriptions</Link>
-          </li>
-          <li>
-            {/* LINK TO API QUERY PAGE */}
-            <Link to="/query">API Query</Link>
-          </li>
-        </ul>
-      </nav>
+    // FETCH PHISHING ATTEMPTS FROM SERVER WHEN COMPONENT MOUNTS
+    useEffect(() => {
+      fetch('/phishing')
+        .then((response) => response.json())
+        .then((data) => {
+          setPhishingAttempts(data);
+        });
+    }, []);
 
-      <Routes>
-        {/* ROUTE FOR HOME PAGE */}
-        <Route path="/" element={<HomePage />} />
-        {/* ROUTE FOR TEST PAGE */}
-        <Route path="/test" element={<Test />} />
-        {/* ROUTE FOR API QUERY PAGE */}
-        <Route path="/query" element={<APIQuery />} />
-        {/* ROUTE FOR SUBSCRIPTION FORM */}
-        <Route path="/subscription" element={<SubscriptionForm />} />
-        {/* ROUTE FOR SUBSCRIPTIONS LIST */}
-        <Route
-          path="/subscriptions"
-          element={<SubscriptionList subscriptions={subscriptions} />}
-        />
+    return (
+      <div>
+        {/* NAV MENU */}
+        <nav>
+          <ul>
+            <li>
+              {/* LINK TO HomePage PAGE */}
+              <Link to="/">Home</Link>
+            </li>
+            <li>
+              {/* LINK TO SUBSCRIPTIONS LIST */}
+              <Link to="/phishing">Phishing Stories</Link>
+            </li>
+          </ul>
+        </nav>
+  
+        <Routes>
+          {/* ROUTE FOR HOME PAGE */}
+          <Route path="/" element={<HomePage />} />
+          {/* ROUTE FOR API QUERY PAGE */}
+          <Route path="/query" element={<APIQuery />} />
+          {/* ROUTE FOR SUBSCRIPTION FORM */}
+          <Route path="/subscription" element={<SubscriptionForm />} />
+          {/* ROUTE FOR SUBSCRIPTIONS LIST */}
+          <Route path="/phishing" element={<PhishingForm />} />
+          {/* ROUTE FOR SUBSCRIPTIONS LIST */}
+          <Route path="/dinopass" element={<DinoPass />} />
       </Routes>
-    </div>
-  );
-}
-
-export default App;
+  
+        {/* SubscriptionForm as a footer */}
+        <div className="footer-container">
+          <SubscriptionForm />
+        </div>
+      </div>
+    );
+  }
+  
+  export default App;
