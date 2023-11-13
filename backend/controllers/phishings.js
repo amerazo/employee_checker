@@ -32,10 +32,12 @@ router.put('/:id', async (req, res) => {
 
 
 router.delete('/:id', async (req, res) => {
-    const deletdPhishingAttempt = await PhishingAttempt.findByIdAndRemove(
+    const deletedPhishingAttempt = await PhishingAttempt.findByIdAndDelete(
       req.params.id
     );
     res.json({ message: 'ENTRY DELETED' });
 });
 
+
 module.exports = router;
+
