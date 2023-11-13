@@ -1,4 +1,5 @@
 require('dotenv').config({ path: '../.env' }); 
+require('dotenv').config(); 
 //REQUIRE MODULES
 const PORT = process.env.PORT || 4000;
 //SOURCE: OFFICE HOURS + AUTH DOMAIN IN CLASS LECTURE NOTES
@@ -21,15 +22,25 @@ const phiCtrl = require('./controllers/phishings');
 const app = express();
 
 
+
 //MIDDLEWARE
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+// VITE BUILD FOR HEROKU DEPLOYMENT
+app.use(express.static(path.join(path.dirname(__dirname), 'frontend', 'dist')))
+
 
 // MOUNT ROUTES
 app.use('/api/subscriptions', subCtrl);
 app.use('/api/subscriptions', apiCtrl);
 app.use('/api/phishing', phiCtrl);
+
+// USE DIST FOLDER FOR ROUTES THAT ARE NOT DISPLAYED HERE
+// Any other route not matching the routes above gets routed by React
+app.get('*', (req, res) => {
+  res.sendFile(path.join(path.dirname(__dirname), 'frontend', 'dist', 'index.html'));
+});
 
 
 

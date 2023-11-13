@@ -17,6 +17,7 @@
   .custom-input[type="textarea"],
   .custom-input select {
     width: 80%; 
+    font-size: 30px;
   }
   
   
