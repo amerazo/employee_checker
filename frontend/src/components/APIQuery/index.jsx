@@ -37,10 +37,10 @@ function APIQuery() {
         setNotBreached(true); 
       } else {
         // THROW AN ERROR FOR UNEXPECTED RESPONSE 
-        throw new Error('An error occurred while checking for breaches.'); STATUS
+        throw new Error('ERROR OCCURED WHEN CHECKING FOR BREACHESS.'); STATUS
       }
     } catch (error) {
-      console.error('Error:', error.message);
+      console.error('ERROR', error.message);
       setNotBreached(true); 
     } finally {
       setIsLoading(false);
