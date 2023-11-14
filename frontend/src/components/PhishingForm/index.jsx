@@ -62,6 +62,22 @@ function PhishingForm() {
     }
   };
 
+    // STORE ITEMS IN LOCAL STORAGE
+    useEffect(() => {
+      const storedEntries = localStorage.getItem('phishingEntries');
+      if (storedEntries) {
+        setPhishingEntries(JSON.parse(storedEntries));
+      } else {
+        fetchData();
+      }
+    }, []);
+  
+    // UPDATE LOCAL STORAGE WHENVR phishingEntries CHANGES
+    useEffect(() => {
+      localStorage.setItem('phishingEntries', JSON.stringify(phishingEntries));
+    }, [phishingEntries]);
+  
+
   const clearForm = () => {
     setNewEntry({
       type: 'phone',
