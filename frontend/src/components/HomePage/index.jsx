@@ -29,6 +29,12 @@ function HomePage() {
         <APIQuery />
       </div>
 
+           {/* PAGE BREAK AND GAME HEADER */}
+           <div className="game-header">
+        <hr />
+        <h2>Play a game while you wait for your results</h2>
+      </div>
+
       {/* GAME CONTAINER*/}
       <div className="game-container">
         <Iframe
