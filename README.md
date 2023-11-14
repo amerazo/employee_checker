@@ -3,12 +3,13 @@
 # Employee Email Monitoring Tool
 
 ## Problem
-Employees sometimes register with their company email addresses on websites, and it's crucial to know if their accounts have been compromised to reduce the company's security risks. This project aims to create an employee email monitoring tool to address this issue using the HaveIBeenPwnedApi to fetch email addresses.
+Employees sometimes register with their company email addresses on websites, and it's crucial to know if their accounts have been compromised to reduce the company's security risks. This project aims to create a security awareness tool where employees can type in their email addresses that will fetch results from the HaveIBeenPwnedAPI as well as allow them to subscribe for monitoring and submit phishing stories.
+
 
 ## User Stories
 
-- As a security officer, I want to view breached and unbreached employee email address accounts for risk assessment.
 - As an employee, I want to subscribe my email for monitoring to ensure my account's security.
+- As a security awareness specialized, I want to provide awareness around password safety.
 
 ## Strategy
 ### MVP
