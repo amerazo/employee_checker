@@ -8,7 +8,7 @@ import './styles.css';
 function HomePage() {
   return (
     <div className="homepage-container">
-      {/* LEFT CONTAINER FOR MAIN HOMEPAGE */}
+      {/* MAIN CONTENT CONTAINER */}
       <div className="main-container">
         <h1 className="ui header">Purpose of the Tool</h1>
         <p>
@@ -29,7 +29,7 @@ function HomePage() {
         <APIQuery />
       </div>
 
-      {/* RIGHT CONTAINER FOR GAME*/}
+      {/* GAME CONTAINER*/}
       <div className="game-container">
         <Iframe
           url="https://cdn.htmlgames.com/TrafficRacer2/"
